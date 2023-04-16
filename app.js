@@ -10,12 +10,15 @@ const openConfig = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const webAppUrl = "https://ya.ru";
+const webAppUrl = "https://portfolio-sherbolot.netlify.app";
 
 const openaiapi = new OpenAIApi(openConfig);
 
 const start = async () => {
-  bot.setMyCommands([{ command: "/start", description: "Start" }]);
+  bot.setMyCommands([
+    { command: "/start", description: "Start" },
+    { command: "/gpt", description: "GhatGPT-Turbo 4" },
+  ]);
 
   bot.on("message", async (msg) => {
     const text = msg.text;
@@ -23,12 +26,14 @@ const start = async () => {
     const chatId = msg.chat.id;
 
     if (text === "/start") {
-      await bot.sendMessage(
+      return bot.sendMessage(
         chatId,
-        `Hi ${user_name}! My name is The GhatGPT-Turbo, I was developed by @arbaevsherbolot, a Full-Stack developer from Kyrgyzstan`,
+        `Hi ${user_name}👋🏻! My name is The GhatGPT-Turbo 4 bot in Telegram 😎 I was developed by @arbaevsherbolot 🧑🏻‍💻, a Full-Stack developer from Kyrgyzstan. You can ask me anything here 😇`,
         {
           reply_markup: {
-            inline_keyboard: [[{ text: "Portfolio", web_app: { url: webAppUrl } }]],
+            inline_keyboard: [
+              [{ text: "Portfolio", web_app: { url: webAppUrl } }],
+            ],
           },
         }
       );
