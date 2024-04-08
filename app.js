@@ -10,7 +10,7 @@ const openConfig = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-const webAppUrl = "https://portfolio-sherbolot.netlify.app";
+const webAppUrl = "https://sherbolotarbaev.pro";
 
 const openaiapi = new OpenAIApi(openConfig);
 
